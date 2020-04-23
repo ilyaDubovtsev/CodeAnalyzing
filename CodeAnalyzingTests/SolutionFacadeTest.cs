@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using CodeAnalyzing;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 
 namespace CodeAnalyzingTests
@@ -18,7 +16,7 @@ namespace CodeAnalyzingTests
         {
             var solutionFacade = new SolutionFacade(solutionPath);
 
-            var projects = solutionFacade.GetProjects().ToArray();
+            var projects = solutionFacade.GetProjects();
 
             projects.Should().NotBeNullOrEmpty();
         }

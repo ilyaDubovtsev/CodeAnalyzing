@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.MSBuild;
@@ -8,18 +9,18 @@ namespace CodeAnalyzing
 {
     public class SolutionFacade
     {
-        private static bool MsBuildWasLoaded = false;
-        private static readonly object locker = new object();
-        private Solution solution;
+        private static bool _msBuildWasLoaded = false;
+        private static readonly object Locker = new object();
+        private readonly Solution _solution;
 
         public SolutionFacade(string solutionPath)
         {
-            solution = OpenSolution(solutionPath);
+            _solution = OpenSolution(solutionPath);
         }
 
-        public IEnumerable<Project> GetProjects()
+        public Project[] GetProjects(Func<Project, bool> filter = null)
         {
-            return solution.Projects;
+            return _solution.Projects.Where(x => filter?.Invoke(x) ?? true).ToArray();
         }
 
         private Solution OpenSolution(string solutionPath)
@@ -42,14 +43,14 @@ namespace CodeAnalyzing
         private static void LoadMsBuildAssemblies()
         {
             var _ = typeof(Microsoft.CodeAnalysis.CSharp.Formatting.CSharpFormattingOptions);
-            if (!MsBuildWasLoaded)
+            if (!_msBuildWasLoaded)
             {
-                lock (locker)
+                lock (Locker)
                 {
-                    if (!MsBuildWasLoaded)
+                    if (!_msBuildWasLoaded)
                     {
                         MSBuildLocator.RegisterDefaults();
-                        MsBuildWasLoaded = true;
+                        _msBuildWasLoaded = true;
                     }
                 }
             }
