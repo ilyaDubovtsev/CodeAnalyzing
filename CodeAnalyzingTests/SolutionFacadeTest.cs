@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using CodeAnalyzing;
+﻿using CodeAnalyzing;
 using FluentAssertions;
 using NUnit.Framework;
 

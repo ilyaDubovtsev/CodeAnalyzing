@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using CodeAnalyzing;
 using FluentAssertions;
-using Microsoft.CodeAnalysis;
 using NUnit.Framework;
 
 namespace CodeAnalyzingTests

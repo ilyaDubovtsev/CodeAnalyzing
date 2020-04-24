@@ -1,0 +1,60 @@
+﻿using System.Linq;
+using CodeAnalyzing;
+using FluentAssertions;
+using NUnit.Framework;
+
+namespace CodeAnalyzingTests
+{
+    [TestFixture]
+    public class DocumentFacadeTest
+    {
+        private DocumentFacade _documentFacade;
+
+        [SetUp]
+        public void SetUp()
+        {
+            var solutionFacade = new SolutionFacade(@"C:\dev\diploma\CodeAnalyzing\Tests\TestSolutionFramework.sln");
+            var project = solutionFacade.GetProjects(x => x.Name == "TestFrameworkProject").First();
+            var projectFacade = new ProjectFacade(project);
+            var document = projectFacade.GetDocuments(x => x.Name == "TestClassForNamesGetting.cs").First();
+            _documentFacade = new DocumentFacade(document);
+        }
+
+        [Test]
+        public void GetMethodNamesTest()
+        {
+
+            var methodNames = _documentFacade.GetMethodNames();
+            methodNames.Length.Should().Be(4);
+            methodNames.Should().Contain("Method1");
+            methodNames.Should().Contain("Method2");
+            methodNames.Should().Contain("Method3");
+            methodNames.Should().Contain("Method4");
+        }
+
+        [Test]
+        public void GetVariableNamesTest()
+        {
+            var variableNames = _documentFacade.GetVariableNames();
+            variableNames.Length.Should().Be(2);
+            variableNames.Should().Contain("a");
+            variableNames.Should().Contain("b");
+        }
+
+        [Test]
+        public void GetMethodBodiesTest()
+        {
+            var methodBodies = _documentFacade.GetMethodText();
+            methodBodies.Should().NotBeNullOrEmpty();
+        }
+
+        [Test]
+        public void GetDepthTest()
+        {
+            var depth = _documentFacade.GetDepth();
+            depth.Should().Be(9);
+        }
+    }
+}
+
+
