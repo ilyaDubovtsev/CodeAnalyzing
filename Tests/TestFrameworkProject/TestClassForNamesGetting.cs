@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TestFrameworkProject
+﻿namespace TestFrameworkProject
 {
     public class TestClassForNamesGetting
     {
