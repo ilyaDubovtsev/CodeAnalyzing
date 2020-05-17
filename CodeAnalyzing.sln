@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalyzing", "CodeAnalyz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalyzingTests", "CodeAnalyzingTests\CodeAnalyzingTests.csproj", "{3BD7B6A0-7FE8-4E6D-A9DF-8510F880AEF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricsCalculating", "MetricsCalculating\MetricsCalculating.csproj", "{5C5C45B7-734D-4B85-B4FF-812B2734DF02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3BD7B6A0-7FE8-4E6D-A9DF-8510F880AEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD7B6A0-7FE8-4E6D-A9DF-8510F880AEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BD7B6A0-7FE8-4E6D-A9DF-8510F880AEF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5C45B7-734D-4B85-B4FF-812B2734DF02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5C45B7-734D-4B85-B4FF-812B2734DF02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5C45B7-734D-4B85-B4FF-812B2734DF02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5C45B7-734D-4B85-B4FF-812B2734DF02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
