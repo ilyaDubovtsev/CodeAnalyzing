@@ -224,6 +224,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeAnalyzerTest.cs" />
     <Compile Include="DocumentFacadeTest.cs" />
     <Compile Include="ProjectFacadeTest.cs" />
     <Compile Include="SolutionFacadeTest.cs" />

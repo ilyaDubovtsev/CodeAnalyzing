@@ -28,7 +28,7 @@ namespace CodeAnalyzing
             return GetTokens(_root, SyntaxKind.IdentifierToken, SyntaxKind.VariableDeclarator).Select(x => x.ValueText).ToArray();
         }
 
-        public string[] GetMethodText()
+        public string[] GetMethodTexts()
         {
             return GetNodes(_root, SyntaxKind.MethodDeclaration).Select(x => x.GetText().ToString()).ToArray();
         }
@@ -49,7 +49,6 @@ namespace CodeAnalyzing
             foreach (var childNode in node.ChildNodes())
             {
                 var childNodeDepth = GetDepth(childNode, depth + 1);
-                Console.WriteLine($"{new string('-', depth)} {childNode.Kind()}");
                 if (maxDepth < childNodeDepth)
                 {
                     maxDepth = childNodeDepth;

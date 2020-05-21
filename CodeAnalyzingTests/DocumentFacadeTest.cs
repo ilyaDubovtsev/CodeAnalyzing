@@ -44,7 +44,7 @@ namespace CodeAnalyzingTests
         [Test]
         public void GetMethodBodiesTest()
         {
-            var methodBodies = _documentFacade.GetMethodText();
+            var methodBodies = _documentFacade.GetMethodTexts();
             methodBodies.Should().NotBeNullOrEmpty();
         }
 
