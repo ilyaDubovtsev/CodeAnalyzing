@@ -9,8 +9,7 @@ namespace CodeAnalyzing
     public class DocumentFacade
     {
         private readonly Document _document;
-        private SyntaxNode _root;
-
+        private readonly SyntaxNode _root;
 
         public DocumentFacade(Document document)
         {
@@ -29,11 +28,6 @@ namespace CodeAnalyzing
             return GetTokens(_root, SyntaxKind.IdentifierToken, SyntaxKind.VariableDeclarator).Select(x => x.ValueText).ToArray();
         }
 
-        public string[] GetTokenNamesWithKind()
-        {
-            return GetTokenNamesWithKind(_root).ToArray();
-        }
-
         public string[] GetMethodText()
         {
             return GetNodes(_root, SyntaxKind.MethodDeclaration).Select(x => x.GetText().ToString()).ToArray();
@@ -41,10 +35,15 @@ namespace CodeAnalyzing
 
         public int GetDepth()
         {
-            return GetDepth(_root, 0);
+            return GetDepth(_root);
         }
 
-        private int GetDepth(SyntaxNode node, int depth)
+        public int[] GetMethodDepths()
+        {
+            return GetNodes(_root, SyntaxKind.MethodDeclaration).Select(n => GetDepth(n)).ToArray();
+        }
+
+        private int GetDepth(SyntaxNode node, int depth = 0)
         {
             var maxDepth = depth;
             foreach (var childNode in node.ChildNodes())
@@ -71,7 +70,7 @@ namespace CodeAnalyzing
                     methodNodes.Add(childNode);
                 }
 
-                methodNodes.AddRange(GetNodes(childNode, syntaxKind)); 
+                methodNodes.AddRange(GetNodes(childNode, syntaxKind));
             }
 
             return methodNodes;
@@ -96,11 +95,16 @@ namespace CodeAnalyzing
             return names;
         }
 
+        [Obsolete("Only for exploring of syntax tees!")]
+        public string[] GetTokenNamesWithKind()
+        {
+            return GetTokenNamesWithKind(_root).ToArray();
+        }
 
+        [Obsolete("Only for exploring of syntax tees!")]
         private List<string> GetTokenNamesWithKind(SyntaxNode node)
         {
-            var names = new List<string>();
-            names.Add($"NODE {node.Kind()}");
+            var names = new List<string> {$"NODE {node.Kind()}"};
             foreach (var token in node.ChildTokens())
             {
                 names.Add($"{token.ValueText} {token.Kind()}");

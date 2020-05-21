@@ -54,6 +54,13 @@ namespace CodeAnalyzingTests
             var depth = _documentFacade.GetDepth();
             depth.Should().Be(9);
         }
+
+        [Test]
+        public void GetMethodDepthsTest()
+        {
+            var depths = _documentFacade.GetMethodDepths();
+            depths.Should().BeEquivalentTo(new []{6, 3, 6, 3});
+        }
     }
 }
 
