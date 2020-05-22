@@ -72,5 +72,19 @@ namespace CodeAnalyzingTests
             var depths = _codeAnalyzer.GetMethodDepths();
             depths.Length.Should().Be(9);
         }
+
+        [Test]
+        public void GetVariablesCountInMethodsTest()
+        {
+            var counts = _codeAnalyzer.GetVariablesCountInMethods();
+            counts.Length.Should().Be(9);
+        }
+
+        [Test]
+        public void GetMethodsCountByDocumentsTest()
+        {
+            var depths = _codeAnalyzer.GetMethodsCountByDocuments();
+            depths.Length.Should().Be(3);
+        }
     }
 }

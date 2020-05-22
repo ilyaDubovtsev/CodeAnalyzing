@@ -48,5 +48,15 @@ namespace CodeAnalyzing
         {
             return _documents.SelectMany(d => d.GetMethodDepths()).ToArray();
         }
+
+        public int[] GetMethodsCountByDocuments()
+        {
+            return _documents.Select(d => d.GetMethodsCount()).ToArray();
+        }
+
+        public int[] GetVariablesCountInMethods()
+        {
+            return _documents.SelectMany(d => d.GetVariablesCountInMethods()).ToArray();
+        }
     }
 }

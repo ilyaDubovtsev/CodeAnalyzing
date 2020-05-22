@@ -20,17 +20,23 @@ namespace CodeAnalyzing
 
         public string[] GetMethodNames()
         {
-            return GetTokens(_root, SyntaxKind.IdentifierToken, SyntaxKind.MethodDeclaration).Select(x => x.ValueText).ToArray();
+            return GetTokens(_root, SyntaxKind.IdentifierToken, SyntaxKind.MethodDeclaration)
+                .Select(x => x.ValueText)
+                .ToArray();
         }
 
         public string[] GetVariableNames()
         {
-            return GetTokens(_root, SyntaxKind.IdentifierToken, SyntaxKind.VariableDeclarator).Select(x => x.ValueText).ToArray();
+            return GetTokens(_root, SyntaxKind.IdentifierToken, SyntaxKind.VariableDeclarator)
+                .Select(x => x.ValueText)
+                .ToArray();
         }
 
         public string[] GetMethodTexts()
         {
-            return GetNodes(_root, SyntaxKind.MethodDeclaration).Select(x => x.GetText().ToString()).ToArray();
+            return GetNodes(_root, SyntaxKind.MethodDeclaration)
+                .Select(x => x.GetText().ToString())
+                .ToArray();
         }
 
         public int GetDepth()
@@ -40,7 +46,21 @@ namespace CodeAnalyzing
 
         public int[] GetMethodDepths()
         {
-            return GetNodes(_root, SyntaxKind.MethodDeclaration).Select(n => GetDepth(n)).ToArray();
+            return GetNodes(_root, SyntaxKind.MethodDeclaration)
+                .Select(n => GetDepth(n))
+                .ToArray();
+        }
+
+        public int GetMethodsCount()
+        {
+            return GetNodes(_root, SyntaxKind.MethodDeclaration).Count;
+        }
+
+        public int[] GetVariablesCountInMethods()
+        {
+            return GetNodes(_root, SyntaxKind.MethodDeclaration)
+                .Select(n => GetNodes(n, SyntaxKind.VariableDeclaration).Count)
+                .ToArray();
         }
 
         private int GetDepth(SyntaxNode node, int depth = 0)

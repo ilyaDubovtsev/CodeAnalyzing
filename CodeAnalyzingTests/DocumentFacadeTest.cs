@@ -2,6 +2,7 @@
 using CodeAnalyzing;
 using FluentAssertions;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 
 namespace CodeAnalyzingTests
 {
@@ -60,6 +61,20 @@ namespace CodeAnalyzingTests
         {
             var depths = _documentFacade.GetMethodDepths();
             depths.Should().BeEquivalentTo(new []{6, 3, 6, 3});
+        }
+
+        [Test]
+        public void GetMethodsCountTest()
+        {
+            var methodsCount = _documentFacade.GetMethodsCount();
+            methodsCount.Should().Be(4);
+        }
+
+        [Test]
+        public void GetVariablesCountInMethodsTest()
+        {
+            var methodsCount = _documentFacade.GetVariablesCountInMethods();
+            methodsCount.Should().BeEquivalentTo(new []{1, 0, 1, 0});
         }
     }
 }
