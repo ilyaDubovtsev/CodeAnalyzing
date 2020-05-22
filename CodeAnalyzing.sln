@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeAnalyzingTests", "CodeA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricsCalculating", "MetricsCalculating\MetricsCalculating.csproj", "{75822474-32F3-4923-B0BD-A66E36DF583B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelProcessor", "ModelProcessor\ModelProcessor.csproj", "{888F49A8-EED4-427A-9A98-72ACF73D6CEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelProcessing", "ModelProcessing\ModelProcessing.csproj", "{888F49A8-EED4-427A-9A98-72ACF73D6CEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

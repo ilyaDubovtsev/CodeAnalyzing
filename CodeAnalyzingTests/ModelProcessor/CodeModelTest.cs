@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using FluentAssertions;
-using ModelProcessor;
+using ModelProcessing;
 using NUnit.Framework;
 
 namespace CodeAnalyzingTests.ModelProcessor

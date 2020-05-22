@@ -1,7 +1,8 @@
 using System.Linq;
 using MetricsCalculating;
+using ModelProcessing;
 
-namespace ModelProcessor
+namespace ModelProcessing
 {
     public static class CodeModelBuilder
     {

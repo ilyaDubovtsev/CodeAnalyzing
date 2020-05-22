@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ModelProcessor
+namespace ModelProcessing
 {
     public class ModelProcessor
     {
@@ -40,7 +40,7 @@ namespace ModelProcessor
 
             for (int i = 0; i < codeModelsLength; i++)
             {
-                for (int j = i; j < codeModelsLength; j++)
+                for (int j = 0; j < codeModelsLength; j++)
                 {
                     var codeModelA = _codeModels[i];
                     var codeModelB = _codeModels[j];

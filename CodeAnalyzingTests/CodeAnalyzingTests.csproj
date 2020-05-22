@@ -228,6 +228,7 @@
     <Compile Include="CodeAnalyzing\DocumentFacadeTest.cs" />
     <Compile Include="CodeAnalyzing\ProjectFacadeTest.cs" />
     <Compile Include="CodeAnalyzing\SolutionFacadeTest.cs" />
+    <Compile Include="Demo\Demo.cs" />
     <Compile Include="MetricsCalculating\MetricsSetCompositorTest.cs" />
     <Compile Include="ModelProcessor\CodeModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,9 +246,9 @@
       <Project>{75822474-32f3-4923-b0bd-a66e36df583b}</Project>
       <Name>MetricsCalculating</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ModelProcessor\ModelProcessor.csproj">
+    <ProjectReference Include="..\ModelProcessing\ModelProcessing.csproj">
       <Project>{888f49a8-eed4-427a-9a98-72acf73d6cef}</Project>
-      <Name>ModelProcessor</Name>
+      <Name>ModelProcessing</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

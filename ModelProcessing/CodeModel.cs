@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ModelProcessor
+namespace ModelProcessing
 {
     public class CodeModel
     {
