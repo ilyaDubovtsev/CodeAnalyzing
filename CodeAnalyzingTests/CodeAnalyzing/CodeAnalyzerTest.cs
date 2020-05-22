@@ -2,7 +2,7 @@ using CodeAnalyzing;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace CodeAnalyzingTests
+namespace CodeAnalyzingTests.CodeAnalyzing
 {
     [TestFixture]
     public class CodeAnalyzerTest

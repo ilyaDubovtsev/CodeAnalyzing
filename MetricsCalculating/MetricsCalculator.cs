@@ -3,7 +3,7 @@ using CodeAnalyzing;
 
 namespace MetricsCalculating
 {
-    public class MetricsCalculator
+    internal class MetricsCalculator
     {
         private readonly CodeAnalyzer _codeAnalyzer;
 
@@ -12,47 +12,47 @@ namespace MetricsCalculating
             _codeAnalyzer = new CodeAnalyzer(solutionPath);
         }
 
-        public int GetMedianMethodNameLength()
+        public int MedianMethodNameLength()
         {
             return _codeAnalyzer.GetMethodNames().Select(x => x.Length).GetMedian();
         }
 
-        public int GetMedianVariableNameLength()
+        public int MedianVariableNameLength()
         {
             return _codeAnalyzer.GetVariableNames().Select(x => x.Length).GetMedian();
         }
 
-        public int GetMedianMethodLinesCount()
+        public int MedianMethodLinesCount()
         {
             return _codeAnalyzer.GetMethodTexts().Select(x => x.Split('\n').Length).GetMedian();
         }
 
-        public int GetMedianMethodLinesLength()
+        public int MedianMethodLinesLength()
         {
             return _codeAnalyzer.GetMethodTexts().SelectMany(x => x.Split('\n')).Select(x => x.Length).GetMedian();
         }
 
-        public int GetMedianMethodLength()
+        public int MedianMethodLength()
         {
             return _codeAnalyzer.GetMethodTexts().Select(x => x.Length).GetMedian();
         }
 
-        public int GetMedianMethodsCountInDocuments()
+        public int MedianMethodsCountInDocuments()
         {
             return _codeAnalyzer.GetMethodsCountByDocuments().GetMedian();
         }
 
-        public int GetMedianVariablesCountInMethods()
+        public int MedianVariablesCountInMethods()
         {
             return _codeAnalyzer.GetVariablesCountInMethods().GetMedian();
         }
 
-        public int GetMedianMethodDepth()
+        public int MedianMethodDepth()
         {
             return _codeAnalyzer.GetMethodDepths().GetMedian();
         }
 
-        public int GetMedianDocumentDepth()
+        public int MedianDocumentDepth()
         {
             return _codeAnalyzer.GetDocumentDepths().GetMedian();
         }
