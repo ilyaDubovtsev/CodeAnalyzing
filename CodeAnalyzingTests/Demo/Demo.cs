@@ -9,7 +9,11 @@ namespace CodeAnalyzingTests.Demo
     public class Demo
     {
         [Test]
-        [TestCase(@"C:\dev\diploma\CodeAnalyzing\Tests\TestSolutionFramework.sln", @"C:\dev\diploma\CodeAnalyzing\Tests\TestSolutionFramework.sln")]
+        [TestCase(@"C:\dev\diploma\CodeAnalyzing\Tests\TestSolutionFramework.sln",
+            @"C:\dev\diploma\CodeAnalyzing\Tests\TestSolutionFramework.sln",
+            @"C:\dev\diploma\CodeAnalyzing\Tests\TestSolution.sln",
+            @"C:\dev\diploma\CodeAnalyzing\Tests\TestSolutionCore.sln",
+            @"C:\dev\diploma\CodeAnalyzing\Tests\TestSolutionStandard.sln")]
         public void DemoMethod(params string[] solutionPaths)
         {
             Console.Write("Введите количество солюшенов: ");

@@ -23,7 +23,7 @@ namespace ModelProcessing
 
                 foreach (var metricName in codeModel.MetricNames)
                 {
-                    stringBuilder.AppendLine($"{metricName}\t {codeModel.GetMetric(metricName)}");
+                    stringBuilder.AppendLine($"{metricName, 30} {codeModel.GetMetric(metricName)}");
                 }
 
                 result.Add(stringBuilder.ToString());
@@ -40,12 +40,13 @@ namespace ModelProcessing
 
             for (int i = 0; i < codeModelsLength; i++)
             {
-                for (int j = 0; j < codeModelsLength; j++)
+                for (int j = i + 1; j < codeModelsLength; j++)
                 {
                     var codeModelA = _codeModels[i];
                     var codeModelB = _codeModels[j];
                     var distance = codeModelA.GetDistanceTo(codeModelB);
-                    stringBuilder.AppendLine($"{codeModelA.SolutionName}\t {codeModelB.SolutionName}\t {distance}");
+                    stringBuilder.AppendLine($"{codeModelA.SolutionName,30} {codeModelB.SolutionName,30} {distance,20}");
+
                 }
             }
 
